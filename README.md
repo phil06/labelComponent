@@ -43,18 +43,16 @@ labelComponent.setLayout(data: self.data,
 ```swift
 ItemLabelData(val: "value label only")
 ```
-
 #### key label and value label
 ```swift
+ItemLabelData(key: "-", val: "key label and value label")
+```
+
+#### key label and value label with individual attributes
+```swift
 ItemLabelData(key: "-", 
-              val: "key label and value label",
+              val: "key label and value label with individual attributes",
               keyAttributes: [NSAttributedString.Key.foregroundColor: UIColor.yellow,
                               NSAttributedString.Key.font: UIFont.systemFont(ofSize: 25)],
                                          valAttributes: nil)
 ```
-
-
-
-
-
-
