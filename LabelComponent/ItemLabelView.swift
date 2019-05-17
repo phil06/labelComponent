@@ -55,7 +55,7 @@ class ItemLabelView: UIView {
         let constraint_H: [NSLayoutConstraint]
         if data.key != nil {
             constraint_H =
-                NSLayoutConstraint.constraints(withVisualFormat: "H:|-left-[keyLabel]-spacing-[valueLabel]-right-|", options: .alignAllTop, metrics: metrics, views: ["keyLabel": keyLabel, "valueLabel": valueLabel])
+                NSLayoutConstraint.constraints(withVisualFormat: "H:|-left-[keyLabel]-spacing@1000-[valueLabel]-right@750-|", options: .alignAllTop, metrics: metrics, views: ["keyLabel": keyLabel, "valueLabel": valueLabel])
         } else {
             constraint_H =
                 NSLayoutConstraint.constraints(withVisualFormat: "H:|-left-[valueLabel]-right-|", metrics: metrics, views: ["valueLabel": valueLabel])
@@ -66,13 +66,4 @@ class ItemLabelView: UIView {
         updateConstraints()
     }
     
-
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
-
 }

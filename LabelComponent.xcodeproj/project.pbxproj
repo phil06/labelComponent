@@ -21,15 +21,22 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		2D2209E7228C1331005E5077 /* LabelButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D2209E6228C1331005E5077 /* LabelButtonView.swift */; };
+		2D4A043D2282723C00D8A42C /* TableLayoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4A043C2282723C00D8A42C /* TableLayoutView.swift */; };
+		2D4A043F22827A6400D8A42C /* TableItemLabelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4A043E22827A6400D8A42C /* TableItemLabelData.swift */; };
 		2D64847F2277D47900B5895A /* ExtendedUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D64847E2277D47900B5895A /* ExtendedUILabel.swift */; };
 		2DB7C971227006AF007E6162 /* LabelComponent.h in Headers */ = {isa = PBXBuildFile; fileRef = 2DB7C96F227006AF007E6162 /* LabelComponent.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2DB7C98F227008A1007E6162 /* ItemLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB7C98E227008A1007E6162 /* ItemLabelView.swift */; };
 		2DB7C991227008CA007E6162 /* ItemLabelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB7C990227008CA007E6162 /* ItemLabelData.swift */; };
 		2DB7C9932270261B007E6162 /* OrderedItemLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB7C9922270261B007E6162 /* OrderedItemLabelView.swift */; };
+		2DCF1DE6228512E20068E0BF /* LabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCF1DE5228512E20068E0BF /* LabelView.swift */; };
 		2DFDACFC2281223B0031F42B /* ExtendedUIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFDACFB2281223B0031F42B /* ExtendedUIFont.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2D2209E6228C1331005E5077 /* LabelButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelButtonView.swift; sourceTree = "<group>"; };
+		2D4A043C2282723C00D8A42C /* TableLayoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableLayoutView.swift; sourceTree = "<group>"; };
+		2D4A043E22827A6400D8A42C /* TableItemLabelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableItemLabelData.swift; sourceTree = "<group>"; };
 		2D64847E2277D47900B5895A /* ExtendedUILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtendedUILabel.swift; sourceTree = "<group>"; };
 		2DB7C96C227006AF007E6162 /* LabelComponent.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LabelComponent.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DB7C96F227006AF007E6162 /* LabelComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LabelComponent.h; sourceTree = "<group>"; };
@@ -37,6 +44,7 @@
 		2DB7C98E227008A1007E6162 /* ItemLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemLabelView.swift; sourceTree = "<group>"; };
 		2DB7C990227008CA007E6162 /* ItemLabelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemLabelData.swift; sourceTree = "<group>"; };
 		2DB7C9922270261B007E6162 /* OrderedItemLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderedItemLabelView.swift; sourceTree = "<group>"; };
+		2DCF1DE5228512E20068E0BF /* LabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelView.swift; sourceTree = "<group>"; };
 		2DFDACFB2281223B0031F42B /* ExtendedUIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtendedUIFont.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -75,8 +83,12 @@
 				2DB7C98E227008A1007E6162 /* ItemLabelView.swift */,
 				2DB7C9922270261B007E6162 /* OrderedItemLabelView.swift */,
 				2DB7C990227008CA007E6162 /* ItemLabelData.swift */,
+				2D4A043E22827A6400D8A42C /* TableItemLabelData.swift */,
+				2DCF1DE5228512E20068E0BF /* LabelView.swift */,
+				2D2209E6228C1331005E5077 /* LabelButtonView.swift */,
 				2D64847E2277D47900B5895A /* ExtendedUILabel.swift */,
 				2DFDACFB2281223B0031F42B /* ExtendedUIFont.swift */,
+				2D4A043C2282723C00D8A42C /* TableLayoutView.swift */,
 			);
 			path = LabelComponent;
 			sourceTree = "<group>";
@@ -184,11 +196,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D4A043F22827A6400D8A42C /* TableItemLabelData.swift in Sources */,
 				2DB7C9932270261B007E6162 /* OrderedItemLabelView.swift in Sources */,
 				2DB7C98F227008A1007E6162 /* ItemLabelView.swift in Sources */,
 				2DB7C991227008CA007E6162 /* ItemLabelData.swift in Sources */,
 				2D64847F2277D47900B5895A /* ExtendedUILabel.swift in Sources */,
+				2D2209E7228C1331005E5077 /* LabelButtonView.swift in Sources */,
+				2DCF1DE6228512E20068E0BF /* LabelView.swift in Sources */,
 				2DFDACFC2281223B0031F42B /* ExtendedUIFont.swift in Sources */,
+				2D4A043D2282723C00D8A42C /* TableLayoutView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
