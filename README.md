@@ -106,6 +106,38 @@ table.sizeToFit()
 ```
 
 ## checkbox + label + additional button label
+구분을 위해 tag값을 사용함
 
+### LabelButtonView
+#### Label
+```swift
+  var label: LabelButtonView
+  
+  label.desc.attributedText = NSMutableAttributedString(string: "어이가 없음",
+                                                        attributes: [.font: UIFont.systemFont(ofSize: 15),
+                                                                     .foregroundColor: UIColor.green])
+  label.containerInset = UIEdgeInsets(top:0, left:0, bottom:0, right:0)
+  label.sizeToFit()
 
+  var label: LabelButtonVi
+```
+#### CheckBox
+```swift
+  // on-off 아이콘 이미지
+  label.useCheckbox(withImageOn: "~~~~", off: "~~~~")
+  //체크박스 - 라벨 사이 간격
+  label.checkboxSpace = 10 
+  label.delegate = self
+```
+#### AdditionalImageButton
+```swift
+  let button = UIButton(frame: CGRect(x: 0, y:0, width:90, height: 50)
+  button.backgroundColor = UIColor.yellow
+  label.useAdditionalButton(btn: button)
+  label.additionalButtonSpace = 10
+  label.delegate = self
+```
 
+### LabelButtonViewDelegate
+#### didSelect(tag:Int, isChecked: Bool)
+#### didTappedAdditionalButton(tag: Int)
