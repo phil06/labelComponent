@@ -19,6 +19,8 @@ public class LabelButtonView: UIView {
     
     public var containerInset: UIEdgeInsets = UIEdgeInsets.zero
     public var checkboxSpace: CGFloat = 0
+    public var checkboxSelectedTextColor: UIColor!
+    private var checkboxDeselectTextColor: UIColor!
     public var additionalButtonSpace: CGFloat = 0
     var autoLayoutConstraints: [NSLayoutConstraint] = []
     
@@ -38,6 +40,8 @@ public class LabelButtonView: UIView {
         desc = UILabel()
         desc.numberOfLines = 0
         desc.lineBreakMode = .byWordWrapping
+        checkboxSelectedTextColor = desc.textColor
+        checkboxDeselectTextColor = desc.textColor
         addSubview(desc)
         desc.translatesAutoresizingMaskIntoConstraints = false
     }
@@ -71,6 +75,9 @@ public class LabelButtonView: UIView {
     @objc func tappedCheckbox() {
         checkbox.isSelected = !checkbox.isSelected
         delegate?.didSelect?(tag: self.tag, isChecked: checkbox.isSelected)
+        if checkboxSelectedTextColor != checkboxDeselectTextColor {
+            desc.textColor = checkbox.isSelected ? checkboxSelectedTextColor : checkboxDeselectTextColor
+        }
     }
     
     public func useAdditionalButton(btn: UIButton) {
@@ -99,9 +106,17 @@ public class LabelButtonView: UIView {
         desc.sizeToFit()
         
         var containerHeight = desc.bounds.size.height
+        var additionalButtonHeight: CGFloat = 0
+        var verticalFormat = ""
         
         var views: [String:UIView] = [:]
         views["desc"] = desc
+        
+        
+        if autoLayoutConstraints.count > 0 {
+            NSLayoutConstraint.deactivate(autoLayoutConstraints)
+            autoLayoutConstraints.removeAll()
+        }
         
         let makeCheckboxConstraint: String = {
             if checkbox != nil && checkbox.isHidden == false {
@@ -115,14 +130,16 @@ public class LabelButtonView: UIView {
         let makeAdditionalConstraint: String = {
             if additionalButton != nil {
                 views["additionalButton"] = additionalButton
+                additionalButtonHeight = additionalButton.frame.size.height
                 containerHeight = max(containerHeight, additionalButton.frame.size.height)
+                verticalFormat = "V:[additionalButton(additionalButtonHeight)]"
                 return String.init(format: "-additionalButtonSpace-[additionalButton(%f)]", additionalButton.frame.size.width)
             }
             return ""
         }()
         
-        
         let horizontalFormat = String.init(format: "H:|-containerLeft-%@[desc]%@-containerRight-|", makeCheckboxConstraint, makeAdditionalConstraint)
+        
         
         let metrics:[String : Any] = [
             "containerTop": containerInset.top,
@@ -131,15 +148,14 @@ public class LabelButtonView: UIView {
             "containerBottom": containerInset.bottom,
             "checkboxSpace": checkboxSpace,
             "additionalButtonSpace": additionalButtonSpace,
-            "containerHeight": containerHeight]
-        
-        if autoLayoutConstraints.count > 0 {
-            NSLayoutConstraint.deactivate(autoLayoutConstraints)
-            autoLayoutConstraints.removeAll()
-        }
+            "containerHeight": containerHeight,
+            "additionalButtonHeight": additionalButtonHeight]
 
-        autoLayoutConstraints += NSLayoutConstraint.constraints(withVisualFormat: "V:|-containerTop-[desc(containerHeight)]-containerBottom-|", metrics: metrics, views: views)
+        autoLayoutConstraints += NSLayoutConstraint.constraints(withVisualFormat: "V:|-containerTop-[desc]-containerBottom-|", metrics: metrics, views: views)
         autoLayoutConstraints += NSLayoutConstraint.constraints(withVisualFormat: horizontalFormat, options: .alignAllCenterY, metrics: metrics, views: views)
+        if verticalFormat.count > 0 {
+            autoLayoutConstraints += NSLayoutConstraint.constraints(withVisualFormat: verticalFormat, metrics: metrics, views: views)
+        }
         
         NSLayoutConstraint.activate(autoLayoutConstraints)
         updateConstraints()
