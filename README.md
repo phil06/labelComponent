@@ -127,6 +127,8 @@ table.sizeToFit()
   label.useCheckbox(withImageOn: "~~~~", off: "~~~~")
   //체크박스 - 라벨 사이 간격
   label.checkboxSpace = 10 
+  // 체크박스 선택시 라벨 색상 변경
+  label.checkboxSelectedTextColor = UIColor.red
   label.delegate = self
 ```
 #### AdditionalImageButton
