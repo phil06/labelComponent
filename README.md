@@ -107,6 +107,7 @@ table.sizeToFit()
 
 ## checkbox + label + additional button label
 구분을 위해 tag값을 사용함
+sizeToFit() 을 통해 레이아웃 업데이트 해야함
 
 ### LabelButtonView
 #### Label
