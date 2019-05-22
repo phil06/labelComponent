@@ -72,6 +72,16 @@ public class LabelButtonView: UIView {
         checkbox.isEnabled = !state
     }
     
+    public func setCheckboxChecked(state: Bool) {
+        if state != checkbox.isSelected {
+            tappedCheckbox()
+        }
+    }
+    
+    public func getCheckboxChecked() -> Bool {
+        return checkbox.isSelected
+    }
+    
     @objc func tappedCheckbox() {
         checkbox.isSelected = !checkbox.isSelected
         delegate?.didSelect?(tag: self.tag, isChecked: checkbox.isSelected)
@@ -130,16 +140,28 @@ public class LabelButtonView: UIView {
         let makeAdditionalConstraint: String = {
             if additionalButton != nil {
                 views["additionalButton"] = additionalButton
-                additionalButtonHeight = additionalButton.frame.size.height
-                containerHeight = max(containerHeight, additionalButton.frame.size.height)
-                verticalFormat = "V:[additionalButton(additionalButtonHeight)]"
-                return String.init(format: "-additionalButtonSpace-[additionalButton(%f)]", additionalButton.frame.size.width)
+                
+                if additionalButton.frame.size == CGSize.zero {
+                    verticalFormat = "V:|-containerTop-[additionalButton]-containerBottom-|"
+                    return String.init(format: "-additionalButtonSpace-[additionalButton]", additionalButton.frame.size.width)
+                } else {
+                    additionalButtonHeight = additionalButton.frame.size.height
+                    containerHeight = max(containerHeight, additionalButton.frame.size.height)
+                    verticalFormat = "V:[additionalButton(additionalButtonHeight)]"
+                    return String.init(format: "-additionalButtonSpace-[additionalButton(%f)]", additionalButton.frame.size.width)
+                }
             }
             return ""
         }()
         
-        let horizontalFormat = String.init(format: "H:|-containerLeft-%@[desc]%@-containerRight-|", makeCheckboxConstraint, makeAdditionalConstraint)
+        let makeDescConstraint: String = {
+            if additionalButton != nil, additionalButton.frame.size == CGSize.zero {
+                return String.init(format: "(%f)", desc.frame.size.width)
+            }
+            return ""
+        }()
         
+        let horizontalFormat = String.init(format: "H:|-containerLeft-%@[desc%@]%@-containerRight-|", makeCheckboxConstraint, makeDescConstraint, makeAdditionalConstraint)
         
         let metrics:[String : Any] = [
             "containerTop": containerInset.top,
@@ -156,6 +178,8 @@ public class LabelButtonView: UIView {
         if verticalFormat.count > 0 {
             autoLayoutConstraints += NSLayoutConstraint.constraints(withVisualFormat: verticalFormat, metrics: metrics, views: views)
         }
+        
+        
         
         NSLayoutConstraint.activate(autoLayoutConstraints)
         updateConstraints()
