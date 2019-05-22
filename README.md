@@ -131,7 +131,17 @@ sizeToFit() 을 통해 레이아웃 업데이트 해야함
   // 체크박스 선택시 라벨 색상 변경
   label.checkboxSelectedTextColor = UIColor.red
   label.delegate = self
+  
+  // 체크박스 비활성화 처리
+  label.setCheckboxDisable(state: true)
+  // 체크박스 비노출 처리
+  label.setCheckboxHidden(state: true)
+  // 체크박스 checked 설정
+  label.setCheckboxChecked(state: false)
+  // 체크박스 체크 상태 확인
+  label.getCheckboxChecked() //return Bool
 ```
+
 #### AdditionalImageButton
 ```swift
   let button = UIButton(frame: CGRect(x: 0, y:0, width:90, height: 50)
