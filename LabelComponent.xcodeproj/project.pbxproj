@@ -21,6 +21,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		2D0A8AFC22BCAFE000FCD155 /* CustomizeButtonWithLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0A8AFB22BCAFE000FCD155 /* CustomizeButtonWithLabel.swift */; };
 		2D2209E7228C1331005E5077 /* LabelButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D2209E6228C1331005E5077 /* LabelButtonView.swift */; };
 		2D4A043D2282723C00D8A42C /* TableLayoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4A043C2282723C00D8A42C /* TableLayoutView.swift */; };
 		2D4A043F22827A6400D8A42C /* TableItemLabelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4A043E22827A6400D8A42C /* TableItemLabelData.swift */; };
@@ -34,6 +35,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2D0A8AFB22BCAFE000FCD155 /* CustomizeButtonWithLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizeButtonWithLabel.swift; sourceTree = "<group>"; };
 		2D2209E6228C1331005E5077 /* LabelButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelButtonView.swift; sourceTree = "<group>"; };
 		2D4A043C2282723C00D8A42C /* TableLayoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableLayoutView.swift; sourceTree = "<group>"; };
 		2D4A043E22827A6400D8A42C /* TableItemLabelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableItemLabelData.swift; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 				2D64847E2277D47900B5895A /* ExtendedUILabel.swift */,
 				2DFDACFB2281223B0031F42B /* ExtendedUIFont.swift */,
 				2D4A043C2282723C00D8A42C /* TableLayoutView.swift */,
+				2D0A8AFB22BCAFE000FCD155 /* CustomizeButtonWithLabel.swift */,
 			);
 			path = LabelComponent;
 			sourceTree = "<group>";
@@ -198,6 +201,7 @@
 			files = (
 				2D4A043F22827A6400D8A42C /* TableItemLabelData.swift in Sources */,
 				2DB7C9932270261B007E6162 /* OrderedItemLabelView.swift in Sources */,
+				2D0A8AFC22BCAFE000FCD155 /* CustomizeButtonWithLabel.swift in Sources */,
 				2DB7C98F227008A1007E6162 /* ItemLabelView.swift in Sources */,
 				2DB7C991227008CA007E6162 /* ItemLabelData.swift in Sources */,
 				2D64847F2277D47900B5895A /* ExtendedUILabel.swift in Sources */,
