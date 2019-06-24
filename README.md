@@ -5,19 +5,20 @@ label framework
 import LabelComponent
 ```
 
-## inner margin
+## ExtendedUILabel
+### inner margin
 ```swift
 var label: ExtendedUILabel!
 label.inset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
 ```
 
-## border
+### border
 ```swift
 label.layerBorderColor = UIColor.black //default
 label.layerBorderWidth: CGFloat = 0
 ```
 
-## estimate string rect size
+### estimate string rect size
 ```swift
 let font = UIFont.systemFont(ofSize: 13)
 //estimate by fixed width
@@ -154,3 +155,17 @@ sizeToFit() 을 통해 레이아웃 업데이트 해야함
 ### LabelButtonViewDelegate
 #### didSelect(tag:Int, isChecked: Bool)
 #### didTappedAdditionalButton(tag: Int)
+
+
+## CustomizeButtonWithLabel
+### CustomizeButtonWithLabelDelegate
+#### buttonTapped(identifier: String)
+identifier : property로 설정한 값
+```swift
+label4.setButtonImage(with: "icon", size: CGSize(width: 40, height: 40))
+label4.setButtonBackground(color: UIColor.yellow, radius: 20)
+label4.setLabelAttributes(txt: "label", attr: [.font: UIFont.systemFont(ofSize: 14), .foregroundColor: UIColor.green])
+label4.identifier = "btn1"
+label4.delegate = self
+label4.sizeToFit()
+```
